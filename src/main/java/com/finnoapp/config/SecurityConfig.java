@@ -24,52 +24,51 @@ import com.finnoapp.filter.JwtAuthFilter;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private JwtAuthFilter authFilter;
+	@Autowired
+	private JwtAuthFilter authFilter;
 
-    @Bean
-    public UserDetailsService userDetailService() {
+	@Bean
+	public UserDetailsService userDetailService() {
 
-	return new ChildUserDetailsService();
-    }
+		return new ChildUserDetailsService();
+	}
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	return http.csrf().disable().cors().and().authorizeHttpRequests()
-		.requestMatchers("/user/authenticate", "/user/", "/api/reset-password/**", "/user/register/**")
-		.permitAll().and().authorizeHttpRequests()
-		.requestMatchers("/user/**", "/category/**", "/question/**", "/quiz/**", "/api/file/**",
-			"/api/file/profile/**")
-		.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-		.authenticationProvider(authenticationProvider())
-		.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
-    }
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		return http.csrf().disable().cors().and().authorizeHttpRequests()
+				.requestMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
+						"/user/register/**")
+				.permitAll().and().authorizeHttpRequests().requestMatchers("/user/**").authenticated().and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.authenticationProvider(authenticationProvider())
+				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
+	@Bean
+	public PasswordEncoder passwordEncoder() {
 
-	return new BCryptPasswordEncoder();
-    }
+		return new BCryptPasswordEncoder();
+	}
 
-    @Bean
-    public AuthenticationProvider authenticationProvider() {
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
 
-	System.out.println("inside AuthenticationProvider");
+		System.out.println("inside AuthenticationProvider");
 
-	DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 
-	authenticationProvider.setUserDetailsService(userDetailService());
+		authenticationProvider.setUserDetailsService(userDetailService());
 
-	authenticationProvider.setPasswordEncoder(passwordEncoder());
+		authenticationProvider.setPasswordEncoder(passwordEncoder());
 
-	return authenticationProvider;
+		return authenticationProvider;
 
-    }
+	}
 
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
 
-	return config.getAuthenticationManager();
-    }
+		return config.getAuthenticationManager();
+	}
 
 }

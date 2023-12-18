@@ -2,6 +2,7 @@ package com.finnoapp.model;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,187 +21,231 @@ import jakarta.persistence.Table;
 @Table(name = "user")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private Long userId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
+	private Long userId;
 
-    @Column(name = "first_name")
-    private String firstName;
+	@Column(name = "first_name")
+	private String firstName;
 
-    @Column(name = "last_name")
-    private String lastName;
+	@Column(name = "last_name")
+	private String lastName;
 
-    @Column(name = "email", unique = true)
-    private String email;
+	@Column(name = "email", unique = true)
+	private String email;
 
-    @Column(name = "user_name", unique = true)
-    private String userName;
+	@Column(name = "user_name", unique = true)
+	private String userName;
 
-    @Column(name = "phone")
-    private String phone;
+	@Column(name = "phone")
+	private String phone;
 
-    @Column(name = "enable")
-    private boolean enable = true;
+	@Column(name = "enable")
+	private boolean enable = true;
 
-    @Column(name = "about")
-    private String about;
+	@Column(name = "about")
+	private String about;
 
-    @Column(name = "password")
-    private String password;
+	@Column(name = "password")
+	private String password;
 
-    @Column(name = "profile")
-    private String profile;
+	@Column(name = "profile")
+	private String profile;
 
-    @Column(name = "otp")
-    private String otp;
+	@Column(name = "otp")
+	private String otp;
 
-    @Column(name = "otpExpirationTime")
-    private LocalDateTime otpExpirationTime;
+	@Column(name = "otp_expiration_time")
+	private LocalDateTime otpExpirationTime;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
-    Set<UserRole> uRole = new HashSet<>();
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	private Set<UserRole> uRole = new HashSet<>();
 
-    public String getProfile() {
-        return profile;
-    }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Article> article;
 
-    public void setProfile(String profile) {
-        this.profile = profile;
-    }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Rating> rating;
 
-    public Long getUserId() {
-        return userId;
-    }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Comment> comment;
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Bookmark> bookmark;
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public List<Comment> getComment() {
+		return comment;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public List<Bookmark> getBookmark() {
+		return bookmark;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setBookmark(List<Bookmark> bookmark) {
+		this.bookmark = bookmark;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public List<Rating> getRating() {
+		return rating;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setRating(List<Rating> rating) {
+		this.rating = rating;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public List<Article> getArticle() {
+		return article;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public void setArticle(List<Article> article) {
+		this.article = article;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getProfile() {
+		return profile;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 
-    public boolean isEnable() {
-        return enable;
-    }
+	public Long getUserId() {
+		return userId;
+	}
 
-    public String getAbout() {
-        return about;
-    }
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 
-    public void setAbout(String about) {
-        this.about = about;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public User(Long userId, String firstName, String lastName, String email, String userName, String phone,
-                boolean enable, String about, String password, String profile, Set<UserRole> uRole) {
-        super();
-        System.out.println("inside user parametrized constructor...");
-        this.userId = userId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userName = userName;
-        this.phone = phone;
-        this.enable = enable;
-        this.about = about;
-        this.password = password;
-        this.profile = profile;
-        this.uRole = uRole;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Set<UserRole> getuRole() {
-        return uRole;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public void setuRole(Set<UserRole> uRole) {
-        this.uRole = uRole;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public User() {
-        super();
-        System.out.println("inside user default construction....");
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public User(String firstName, String lastName, String email, String userName, String phone, boolean enable,
-                String about, String password, String profile) {
-        super();
-        System.out.println("inside user parametrized constructor...");
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userName = userName;
-        this.phone = phone;
-        this.enable = enable;
-        this.about = about;
-        this.password = password;
-        this.profile = profile;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public String getOtp() {
-        return otp;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public void setOtp(String otp) {
-        this.otp = otp;
-    }
+	public boolean isEnable() {
+		return enable;
+	}
 
-    public LocalDateTime getOtpExpirationTime() {
-        return otpExpirationTime;
-    }
+	public String getAbout() {
+		return about;
+	}
 
-    public void setOtpExpirationTime(LocalDateTime otpExpirationTime) {
-        this.otpExpirationTime = otpExpirationTime;
-    }
+	public void setAbout(String about) {
+		this.about = about;
+	}
+
+	public User(Long userId, String firstName, String lastName, String email, String userName, String phone,
+			boolean enable, String about, String password, String profile, Set<UserRole> uRole) {
+		super();
+		System.out.println("inside user parametrized constructor...");
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.userName = userName;
+		this.phone = phone;
+		this.enable = enable;
+		this.about = about;
+		this.password = password;
+		this.profile = profile;
+		this.uRole = uRole;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+
+	public Set<UserRole> getuRole() {
+		return uRole;
+	}
+
+	public void setuRole(Set<UserRole> uRole) {
+		this.uRole = uRole;
+	}
+
+	public User() {
+		super();
+		System.out.println("inside user default construction....");
+	}
+
+	public User(String firstName, String lastName, String email, String userName, String phone, boolean enable,
+			String about, String password, String profile) {
+		super();
+		System.out.println("inside user parametrized constructor...");
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.userName = userName;
+		this.phone = phone;
+		this.enable = enable;
+		this.about = about;
+		this.password = password;
+		this.profile = profile;
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+
+	public LocalDateTime getOtpExpirationTime() {
+		return otpExpirationTime;
+	}
+
+	public void setOtpExpirationTime(LocalDateTime otpExpirationTime) {
+		this.otpExpirationTime = otpExpirationTime;
+	}
 
 }
