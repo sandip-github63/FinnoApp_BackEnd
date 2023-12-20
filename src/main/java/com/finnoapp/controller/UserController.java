@@ -74,31 +74,28 @@ public class UserController {
 				userReq.getPhone(), userReq.isEnable(), userReq.getAbout(), userReq.getPassword(),
 				userReq.getProfile());
 
-		System.out.println("user Role  is .. :" + userReq.getRole());
+		System.out.println("user Role  is .. :" + userReq.getRoleName());
 
 		Role r1;
 
-		if (userReq.getRole() != null && userReq.getRole().equals("ROLE_ADMIN")) {
+		if (userReq.getRoleName() != null && userReq.getRoleName().equals("ROLE_ADMIN")) {
 
-			System.out.println("user role is ........:" + userReq.getRole());
+			System.out.println("user role is ........:" + userReq.getRoleName());
 
-			r1 = this.roleService.getRole(userReq.getRole());
+			r1 = this.roleService.getRole(userReq.getRoleName());
 
 			System.out.println("User role ID :" + r1.getRoleId());
 
-		} else if (userReq.getRole() != null && userReq.getRole().equals("ROLE_USER")) {
+		} else if (userReq.getRoleName() != null && userReq.getRoleName().equals("ROLE_USER")) {
 
-			System.out.println("user role is ........:" + userReq.getRole());
+			System.out.println("user role is ........:" + userReq.getRoleName());
 
-			r1 = this.roleService.getRole(userReq.getRole());
+			r1 = this.roleService.getRole(userReq.getRoleName());
 
 			System.out.println("User role ID :" + r1.getRoleId());
 
 		} else {
-			r1 = new Role();
-
-			r1.setRoleName("ROLE_USER");
-			r1.setRoleId(46L);
+			r1 = this.roleService.getRole("ROLE_USER");
 
 		}
 

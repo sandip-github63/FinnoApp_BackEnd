@@ -9,6 +9,16 @@ public class GenericMessage<T> {
 
 	private T data;
 
+	private boolean hasData = false;
+
+	public boolean isHasData() {
+		return hasData;
+	}
+
+	public void setHasData(boolean hasData) {
+		this.hasData = hasData;
+	}
+
 	public String getMessage() {
 		return message;
 	}
@@ -18,22 +28,31 @@ public class GenericMessage<T> {
 	}
 
 	public T getData() {
-		return data;
+		return this.data;
+
 	}
 
 	public void setData(T data) {
 		this.data = data;
 	}
 
-	public GenericMessage(String message, T data) {
+	public GenericMessage(String message, T data, boolean hasData) {
 		super();
 		this.message = message;
 		this.data = data;
+		this.hasData = hasData;
+
 	}
 
 	public GenericMessage() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public GenericMessage(String message, boolean hasData) {
+		super();
+		this.message = message;
+		this.hasData = hasData;
 	}
 
 }

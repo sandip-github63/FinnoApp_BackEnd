@@ -151,6 +151,7 @@ public class ResetPasswordController {
 			if (result) {
 
 				response.setMessage("Password Updated..");
+				response.setHasData(true);
 				return ResponseEntity.ok(response);
 			} else {
 				response.setMessage("Email Id not Found");

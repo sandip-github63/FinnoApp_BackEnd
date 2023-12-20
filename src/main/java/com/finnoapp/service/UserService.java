@@ -8,18 +8,20 @@ import com.finnoapp.model.UserRole;
 
 public interface UserService {
 
-    public User createUser(User user, Set<UserRole> userRoles);
+	public User createUser(User user, Set<UserRole> userRoles);
 
-    public User getUserByUserName(String userName);
+	public User getUserByUserName(String userName);
 
-    public boolean deleteUser(Long userId);
+	public boolean deleteUser(Long userId);
 
-    public List<User> getUsers();
+	public List<User> getUsers();
 
-    public boolean updatePasswordByEmail(String email, String password);
+	public boolean updatePasswordByEmail(String email, String password);
 
-    public User getUserByUserId(Long userId);
+	public User getUserByUserId(Long userId);
 
-    public User updateUser(User user);
+	public User updateUser(User user);
+
+	public User getUserById(Long userId);
 
 }

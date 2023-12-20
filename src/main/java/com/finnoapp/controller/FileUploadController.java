@@ -83,6 +83,7 @@ public class FileUploadController {
 
 				GenericMessage<Void> g = new GenericMessage<>();
 				g.setMessage("Profile image uploaded successfully!");
+				g.setHasData(true);
 
 				return ResponseEntity.ok(g);
 

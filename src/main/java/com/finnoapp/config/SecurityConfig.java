@@ -38,8 +38,8 @@ public class SecurityConfig {
 		return http.csrf().disable().cors().and().authorizeHttpRequests()
 				.requestMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
 						"/user/register/**")
-				.permitAll().and().authorizeHttpRequests().requestMatchers("/user/**").authenticated().and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.permitAll().and().authorizeHttpRequests().requestMatchers("/user/**", "/api/article/**")
+				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider())
 				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
 	}

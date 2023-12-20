@@ -24,29 +24,32 @@ public class Article {
 	@Column(name = "article_id")
 	private Long articleId;
 
-	@Column(name = "title")
+	@Column(name = "title", length = 10000)
 	private String title;
 
-	@Column(name = "content")
+	@Column(name = "content", length = 65535)
 	private String content;
 
 	@Column(name = "publication_date")
 	private LocalDateTime publicationDate;
 
+	@Column(name = "updated_date")
+	private LocalDateTime updatedDate;
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Rating> rating;
 
-	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Image> images;
 
-	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Comment> comment;
 
-	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Bookmark> bookmark;
 
 	public List<Comment> getComment() {
@@ -101,6 +104,14 @@ public class Article {
 		return title;
 	}
 
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
@@ -119,6 +130,26 @@ public class Article {
 
 	public void setPublicationDate(LocalDateTime publicationDate) {
 		this.publicationDate = publicationDate;
+	}
+
+	public Article(String title, String content, User user) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.user = user;
+	}
+
+	public Article(String title, String content, LocalDateTime publicationDate, User user) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.publicationDate = publicationDate;
+		this.user = user;
+	}
+
+	public Article() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 }
