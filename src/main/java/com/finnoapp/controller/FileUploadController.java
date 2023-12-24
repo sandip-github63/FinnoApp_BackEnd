@@ -33,11 +33,8 @@ import com.finnoapp.service.UserService;
 @RequestMapping("/api/file")
 public class FileUploadController {
 
-	@Value("${fileupload.directory}")
+	@Value("${profileUpload.directory}")
 	private String uploadDirectory;
-
-	@Value("${fileupload.maxFileSize}")
-	private String maxFileSize;
 
 	@Autowired
 	private UserService userService;
@@ -50,13 +47,6 @@ public class FileUploadController {
 			// Check if the uploaded file is not empty
 			if (profileImage != null && !profileImage.isEmpty() && profileRequest.getUserId() != null) {
 				// Check the file size
-				long fileSizeInBytes = profileImage.getSize();
-				long maxFileSizeInBytes = parseFileSize(maxFileSize);
-
-				if (fileSizeInBytes > maxFileSizeInBytes) {
-					return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-							.body("File size exceeds the maximum allowed size (" + maxFileSize + ")");
-				}
 
 				String fileName = StringUtils.cleanPath(profileImage.getOriginalFilename());
 
@@ -92,19 +82,6 @@ public class FileUploadController {
 			}
 		} catch (IOException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload profile image");
-		}
-	}
-
-	private long parseFileSize(String size) {
-		size = size.toUpperCase();
-		if (size.endsWith("KB")) {
-			return Long.parseLong(size.substring(0, size.length() - 2)) * 1024;
-		} else if (size.endsWith("MB")) {
-			return Long.parseLong(size.substring(0, size.length() - 2)) * 1024 * 1024;
-		} else if (size.endsWith("GB")) {
-			return Long.parseLong(size.substring(0, size.length() - 2)) * 1024 * 1024 * 1024;
-		} else {
-			return Long.parseLong(size);
 		}
 	}
 

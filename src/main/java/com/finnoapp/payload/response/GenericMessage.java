@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class GenericMessage<T> {
 
+	private String status;
+
 	private String message;
 
 	private T data;
@@ -52,6 +54,22 @@ public class GenericMessage<T> {
 	public GenericMessage(String message, boolean hasData) {
 		super();
 		this.message = message;
+		this.hasData = hasData;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public GenericMessage(String status, String message, T data, boolean hasData) {
+		super();
+		this.status = status;
+		this.message = message;
+		this.data = data;
 		this.hasData = hasData;
 	}
 

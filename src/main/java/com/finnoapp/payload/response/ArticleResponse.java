@@ -1,5 +1,7 @@
 package com.finnoapp.payload.response;
 
+import java.util.List;
+
 public class ArticleResponse {
 
 	private Long articleId;
@@ -13,6 +15,8 @@ public class ArticleResponse {
 	private String publicationDate;
 
 	private String updatedDate;
+
+	private List<String> imagePaths;
 
 	public String getPublicationDate() {
 		return publicationDate;
@@ -84,6 +88,26 @@ public class ArticleResponse {
 	public ArticleResponse() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public List<String> getImagePaths() {
+		return imagePaths;
+	}
+
+	public void setImagePaths(List<String> imagePaths) {
+		this.imagePaths = imagePaths;
+	}
+
+	public ArticleResponse(Long articleId, String title, String content, Long userId, String publicationDate,
+			String updatedDate, List<String> imagePaths) {
+		super();
+		this.articleId = articleId;
+		this.title = title;
+		this.content = content;
+		this.userId = userId;
+		this.publicationDate = publicationDate;
+		this.updatedDate = updatedDate;
+		this.imagePaths = imagePaths;
 	}
 
 }
