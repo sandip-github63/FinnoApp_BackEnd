@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,24 +51,15 @@ public class ArticleController {
 				return ResponseEntity.badRequest().body(new GenericMessage<>("success", "Invalid request", false));
 			}
 
-			Long userId = request.getUserId();
-			User user = userService.getUserById(userId);
-
+			User user = userService.getUserById(request.getUserId());
 			if (user == null) {
 				throw new CustomException("User Id does not exist in our database");
 			}
 
 			Image image = createImageFromRequest(request);
-			Article result;
-			if (image != null) {
-				Article article = createArticleFromRequest(request, user, image);
-				result = articleService.addArticle(article);
-			} else {
-				Article article = new Article(request.getTitle(), request.getContent(), LocalDateTime.now(), user);
-
-				result = this.articleService.addArticle(article);
-
-			}
+			Article result = (image != null) ? articleService.addArticle(createArticleFromRequest(request, user, image))
+					: articleService.addArticle(
+							new Article(request.getTitle(), request.getContent(), LocalDateTime.now(), user));
 
 			if (result != null) {
 				return ResponseEntity.ok().body(new GenericMessage<>("success", "Article added.", true));
@@ -82,6 +72,135 @@ public class ArticleController {
 			e.printStackTrace();
 			throw e;
 		}
+	}
+
+	@GetMapping("/get/{articleId}")
+	public ResponseEntity<?> getArticle(@PathVariable Long articleId) {
+		try {
+			Article article = articleService.getArticleById(articleId);
+
+			if (article != null) {
+
+				List<Image> images = article.getImages();
+
+				// Convert images to a format suitable for response (e.g., extract image paths)
+				List<String> imagePaths = this.extractImagePaths(images);
+				ArticleResponse articleResponse = this.convertArticleToArticleImage(article, imagePaths);
+
+				return ResponseEntity.ok()
+						.body(new GenericMessage<>("success", "article fetched successfully..", articleResponse, true));
+			} else {
+				throw new CustomException("Article not found");
+			}
+		} catch (CustomException ce) {
+			throw ce;
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+			throw e;
+		}
+	}
+
+	@GetMapping("get/all-articles")
+	public ResponseEntity<?> getListArticle() {
+		try {
+			List<Article> allArticles = articleService.getAllArticles();
+
+			if (!allArticles.isEmpty()) {
+				List<ArticleResponse> list = allArticles.stream().map(article -> {
+					String publicationDateFormatted = this.formatLocalDateTime(article.getPublicationDate());
+					String updateDateFormatted = this.formatLocalDateTime(article.getUpdatedDate());
+
+					return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
+							article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
+							extractImagePaths(article.getImages()));
+				}).collect(Collectors.toList());
+
+				return ResponseEntity.ok(new GenericMessage<>("Article fetched successfully.", list, true));
+			} else {
+				throw new CustomException("Article not found");
+			}
+		} catch (CustomException ce) {
+			throw ce;
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+			throw e;
+		}
+	}
+
+	@DeleteMapping("delete/{articleId}")
+	public ResponseEntity<?> deleteArticle(@PathVariable Long articleId) {
+		try {
+			// Check if the article exists
+			Article article = articleService.getArticleById(articleId);
+
+			if (article != null) {
+				// Delete the associated image from the server if the image name is not null
+				article.getImages().stream().findFirst().map(Image::getImageName).filter(imageName -> imageName != null)
+						.ifPresent(imageName -> imageUpload.deleteImageFromServerByImageName(imageName));
+
+				// Delete the article
+				articleService.deleteArticle(articleId);
+
+				return ResponseEntity.ok(new GenericMessage<>("Article deleted successfully.", false));
+			} else {
+				throw new CustomException("Article not found");
+			}
+		} catch (CustomException ce) {
+			throw ce;
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+			throw e;
+		}
+	}
+
+	@PutMapping("/update/{articleId}")
+	public ResponseEntity<?> updateArticle(@PathVariable Long articleId,
+			@ModelAttribute ArticleRequest updatedArticleRequest) {
+		try {
+			Article existingArticle = articleService.getArticleById(articleId);
+
+			if (existingArticle != null) {
+				updateArticleDetails(existingArticle, updatedArticleRequest);
+
+				if (updatedArticleRequest.getImage() != null) {
+					Image updatedImage = updateArticleImage(existingArticle.getImages().get(0), updatedArticleRequest);
+
+					if (updatedImage != null) {
+						List<Image> updatedImages = new ArrayList<>();
+						updatedImages.add(updatedImage);
+						existingArticle.setImages(updatedImages);
+
+					}
+
+				}
+
+				Article updatedArticle = articleService.updateArticle(existingArticle);
+
+				ArticleResponse articleResponse = convertArticleToArticleImage(updatedArticle);
+
+				return ResponseEntity.ok(new GenericMessage<>("Article updated successfully.", articleResponse, true));
+			} else {
+				throw new CustomException("Article not found");
+			}
+		} catch (CustomException ce) {
+			throw ce;
+		} catch (Exception e) {
+
+			throw e;
+		}
+	}
+
+	public ArticleResponse convertArticleToArticleImage(Article article, List<String> imagePaths) {
+
+		String publicationDateFormatted = this.formatLocalDateTime(article.getPublicationDate());
+		String updateDateFormatted = this.formatLocalDateTime(article.getUpdatedDate());
+
+		return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
+				article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted, imagePaths);
+	}
+
+	private List<String> extractImagePaths(List<Image> images) {
+		return images.stream().map(Image::getImagePath).collect(Collectors.toList());
 	}
 
 	private Image createImageFromRequest(ArticleRequest request) {
@@ -160,130 +279,6 @@ public class ArticleController {
 	private boolean isValidArticleRequest(ArticleRequest request) {
 		return request != null && request.getContent() != null && request.getTitle() != null
 				&& request.getUserId() != null;
-	}
-
-	@GetMapping("/get/{articleId}")
-	public ResponseEntity<?> getArticle(@PathVariable Long articleId) {
-		try {
-			Article article = articleService.getArticleById(articleId);
-
-			if (article != null) {
-
-				List<Image> images = article.getImages();
-
-				// Convert images to a format suitable for response (e.g., extract image paths)
-				List<String> imagePaths = this.extractImagePaths(images);
-				ArticleResponse articleResponse = this.convertArticleToArticleImage(article, imagePaths);
-
-				return ResponseEntity.status(HttpStatus.OK)
-						.body(new GenericMessage<>("success", "article fetched successfully..", articleResponse, true));
-			} else {
-				throw new CustomException("Article not found");
-			}
-		} catch (CustomException ce) {
-			throw ce;
-		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
-			throw e;
-		}
-	}
-
-	public ArticleResponse convertArticleToArticleImage(Article article, List<String> imagePaths) {
-
-		String publicationDateFormatted = this.formatLocalDateTime(article.getPublicationDate());
-		String updateDateFormatted = this.formatLocalDateTime(article.getUpdatedDate());
-
-		return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
-				article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted, imagePaths);
-	}
-
-	private List<String> extractImagePaths(List<Image> images) {
-		return images.stream().map(Image::getImagePath).collect(Collectors.toList());
-	}
-
-	@GetMapping("get/all-articles")
-	public ResponseEntity<?> getListArticle() {
-		try {
-			List<Article> allArticles = articleService.getAllArticles();
-
-			if (!allArticles.isEmpty()) {
-				List<ArticleResponse> list = allArticles.stream().map(article -> {
-					String publicationDateFormatted = this.formatLocalDateTime(article.getPublicationDate());
-					String updateDateFormatted = this.formatLocalDateTime(article.getUpdatedDate());
-
-					return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
-							article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-							extractImagePaths(article.getImages()));
-				}).collect(Collectors.toList());
-
-				return ResponseEntity.ok(new GenericMessage<>("Article fetched successfully.", list, true));
-			} else {
-				throw new CustomException("Article not found");
-			}
-		} catch (CustomException ce) {
-			throw ce;
-		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
-			throw e;
-		}
-	}
-
-	@DeleteMapping("delete/{articleId}")
-	public ResponseEntity<?> deleteArticle(@PathVariable Long articleId) {
-		try {
-			// Check if the article exists
-			Article article = articleService.getArticleById(articleId);
-
-			if (article != null) {
-				// Delete the article
-				articleService.deleteArticle(articleId);
-				return ResponseEntity.ok(new GenericMessage<>("Article deleted successfully.", false));
-			} else {
-				throw new CustomException("Article not found");
-			}
-		} catch (CustomException ce) {
-			throw ce;
-		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
-			throw e;
-		}
-	}
-
-	@PutMapping("/update/{articleId}")
-	public ResponseEntity<?> updateArticle(@PathVariable Long articleId,
-			@ModelAttribute ArticleRequest updatedArticleRequest) {
-		try {
-			Article existingArticle = articleService.getArticleById(articleId);
-
-			if (existingArticle != null) {
-				updateArticleDetails(existingArticle, updatedArticleRequest);
-
-				if (updatedArticleRequest.getImage() != null) {
-					Image updatedImage = updateArticleImage(existingArticle.getImages().get(0), updatedArticleRequest);
-
-					if (updatedImage != null) {
-						List<Image> updatedImages = new ArrayList<>();
-						updatedImages.add(updatedImage);
-						existingArticle.setImages(updatedImages);
-
-					}
-
-				}
-
-				Article updatedArticle = articleService.updateArticle(existingArticle);
-
-				ArticleResponse articleResponse = convertArticleToArticleImage(updatedArticle);
-
-				return ResponseEntity.ok(new GenericMessage<>("Article updated successfully.", articleResponse, true));
-			} else {
-				throw new CustomException("Article not found");
-			}
-		} catch (CustomException ce) {
-			throw ce;
-		} catch (Exception e) {
-
-			throw e;
-		}
 	}
 
 	private void updateArticleDetails(Article existingArticle, ArticleRequest updatedArticleRequest) {
