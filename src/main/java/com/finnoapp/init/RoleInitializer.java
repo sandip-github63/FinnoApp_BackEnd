@@ -1,13 +1,13 @@
 package com.finnoapp.init;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.finnoapp.model.Role;
 import com.finnoapp.repository.RoleRepository;
-
-import jakarta.annotation.PostConstruct;
 
 @Component
 public class RoleInitializer {

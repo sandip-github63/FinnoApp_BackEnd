@@ -1,5 +1,7 @@
 package com.finnoapp.exception;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,8 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import com.finnoapp.payload.response.GenericMessage;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalException {

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,9 +16,6 @@ import com.finnoapp.model.UserRole;
 import com.finnoapp.repository.RoleRepository;
 import com.finnoapp.repository.UserRepository;
 import com.finnoapp.service.UserService;
-
-import io.micrometer.common.util.StringUtils;
-import jakarta.transaction.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -106,7 +105,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public boolean updatePasswordByEmail(String email, String password) {
 		try {
-			if (StringUtils.isBlank(email)) {
+			if (email == null || email.trim().isEmpty()) {
 				return false; // or throw an IllegalArgumentException
 			}
 

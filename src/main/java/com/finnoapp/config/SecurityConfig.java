@@ -16,11 +16,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.finnoapp.filter.JwtAuthFilter;
 
 @Configuration
 @EnableWebSecurity
+@EnableWebMvc
 @EnableMethodSecurity
 public class SecurityConfig {
 
@@ -35,13 +37,17 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable().cors().and().authorizeHttpRequests()
-				.requestMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
-						"/user/register/**")
-				.permitAll().and().authorizeHttpRequests().requestMatchers("/user/**", "/api/article/**")
-				.authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+		http.csrf().disable().cors().and()
+				.authorizeRequests(authorizeRequests -> authorizeRequests
+						.antMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
+								"/user/register/**", "/swagger-ui/index.html")
+						.permitAll().antMatchers("/user/**", "/api/article/**").authenticated())
+				.sessionManagement(
+						sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authenticationProvider(authenticationProvider())
-				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
+				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
+
+		return http.build();
 	}
 
 	@Bean

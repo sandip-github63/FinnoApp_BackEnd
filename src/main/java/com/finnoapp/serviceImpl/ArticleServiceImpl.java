@@ -2,6 +2,8 @@ package com.finnoapp.serviceImpl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +11,6 @@ import com.finnoapp.exception.CustomException;
 import com.finnoapp.model.Article;
 import com.finnoapp.repository.ArticleRepository;
 import com.finnoapp.service.ArticleService;
-
-import jakarta.transaction.Transactional;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
