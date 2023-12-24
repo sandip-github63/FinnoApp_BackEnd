@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -94,6 +93,33 @@ public class ArticleController {
 //			if ("true".equals(imageInfo.get("imageNotFound"))) {
 //				throw new CustomException("Image not provided in the request.");
 //			}
+
+			if ("yes".equals(imageInfo.get("serverError"))) {
+				throw new CustomException("Error occurred while processing the image.");
+			}
+
+			if ("true".equalsIgnoreCase(imageInfo.get("imageNotFound"))) {
+				return null;
+			}
+
+			if (imageInfo.get("imageName") != null && imageInfo.get("imagePath") != null) {
+				image.setImageName(imageInfo.get("imageName"));
+				image.setImagePath(imageInfo.get("imagePath"));
+			}
+
+		} catch (CustomException ce) {
+			throw ce;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new CustomException("Error processing the image.", e);
+		}
+
+		return image;
+	}
+
+	private Image createImageFromRequest(Map<String, String> imageInfo, Image image) {
+
+		try {
 
 			if ("yes".equals(imageInfo.get("serverError"))) {
 				throw new CustomException("Error occurred while processing the image.");
@@ -223,33 +249,30 @@ public class ArticleController {
 		}
 	}
 
-	// update article
-
 	@PutMapping("/update/{articleId}")
 	public ResponseEntity<?> updateArticle(@PathVariable Long articleId,
-			@RequestBody ArticleRequest updatedArticleRequest) {
+			@ModelAttribute ArticleRequest updatedArticleRequest) {
 		try {
-			// Check if the article exists
 			Article existingArticle = articleService.getArticleById(articleId);
 
 			if (existingArticle != null) {
-				// Update the existing article with the new data
-				existingArticle.setTitle(updatedArticleRequest.getTitle());
-				existingArticle.setContent(updatedArticleRequest.getContent());
-				existingArticle.setUpdatedDate(LocalDateTime.now());
+				updateArticleDetails(existingArticle, updatedArticleRequest);
 
-				// Image update
+				if (updatedArticleRequest.getImage() != null) {
+					Image updatedImage = updateArticleImage(existingArticle.getImages().get(0), updatedArticleRequest);
 
-				// Save the updated article
+					if (updatedImage != null) {
+						List<Image> updatedImages = new ArrayList<>();
+						updatedImages.add(updatedImage);
+						existingArticle.setImages(updatedImages);
+
+					}
+
+				}
+
 				Article updatedArticle = articleService.updateArticle(existingArticle);
 
-				// formatted the date
-				String publicationDateFormatted = this.formatLocalDateTime(updatedArticle.getPublicationDate());
-				String updateDateFormatted = this.formatLocalDateTime(updatedArticle.getUpdatedDate());
-
-				ArticleResponse articleResponse = new ArticleResponse(updatedArticle.getArticleId(),
-						updatedArticle.getTitle(), updatedArticle.getContent(), updatedArticle.getUser().getUserId(),
-						publicationDateFormatted, updateDateFormatted);
+				ArticleResponse articleResponse = convertArticleToArticleImage(updatedArticle);
 
 				return ResponseEntity.ok(new GenericMessage<>("Article updated successfully.", articleResponse, true));
 			} else {
@@ -258,9 +281,48 @@ public class ArticleController {
 		} catch (CustomException ce) {
 			throw ce;
 		} catch (Exception e) {
-			System.out.println(e.getStackTrace());
+
 			throw e;
 		}
+	}
+
+	private void updateArticleDetails(Article existingArticle, ArticleRequest updatedArticleRequest) {
+		existingArticle.setTitle(updatedArticleRequest.getTitle());
+		existingArticle.setContent(updatedArticleRequest.getContent());
+		existingArticle.setUpdatedDate(LocalDateTime.now());
+	}
+
+	private ArticleResponse convertArticleToArticleImage(Article article) {
+		String publicationDateFormatted = formatLocalDateTime(article.getPublicationDate());
+		String updateDateFormatted = formatLocalDateTime(article.getUpdatedDate());
+
+		return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
+				article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
+				extractImagePaths(article.getImages()));
+	}
+
+	private Image updateArticleImage(Image existingImage, ArticleRequest updatedArticleRequest) {
+
+		if (existingImage != null && existingImage.getImageName() != null) {
+			boolean deleteResult = imageUpload.deleteImageFromServerByImageName(existingImage.getImageName());
+
+			if (!deleteResult) {
+				// log.warn("Failed to delete existing image with name: " +
+				// existingImage.getImageName());
+			}
+		}
+
+		Map<String, String> imageInfo = imageUpload.saveImage(updatedArticleRequest.getImage());
+
+		if ("yes".equals(imageInfo.get("serverError"))) {
+			throw new CustomException("Error occurred while processing the image.");
+		}
+
+		if ("true".equalsIgnoreCase(imageInfo.get("imageNotFound"))) {
+			return null;
+		}
+
+		return createImageFromRequest(imageInfo, existingImage);
 	}
 
 	private String formatLocalDateTime(LocalDateTime dateTime) {

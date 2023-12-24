@@ -70,4 +70,23 @@ public class ImageUpload {
 	private String generateUniqueFilename(String originalFilename) {
 		return UUID.randomUUID().toString() + "_" + originalFilename;
 	}
+
+	public boolean deleteImageFromServerByImageName(String imageName) {
+		try {
+			Path imagePath = Paths.get(uploadDirectory, imageName);
+
+			// Check if the file exists before attempting to delete
+			if (Files.exists(imagePath)) {
+				Files.delete(imagePath);
+				return true; // Image deleted successfully
+			} else {
+				log.warn("Image not found for deletion: " + imageName);
+				return false; // Image not found
+			}
+		} catch (IOException e) {
+			log.error("Error deleting image", e);
+			return false; // Error occurred while deleting image
+		}
+	}
+
 }
