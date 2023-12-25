@@ -31,15 +31,15 @@ public class ImageUpload {
 
 		if (image == null || image.isEmpty()) {
 			map.put("imageNotFound", "true");
+			log.warn("No image provided for saving.");
 			return map;
 		}
 
 		try {
 			long fileSizeInBytes = image.getSize();
-			// Validate image size for images only
 			long maxsize = Long.parseLong(maxSize);
 
-			System.out.println("max size: " + maxsize);
+			log.debug("Max size configured: {} MB", maxsize);
 
 			long maxImageSizeInBytes = maxsize * 1024 * 1024; // 1MB limit for images
 
@@ -59,9 +59,14 @@ public class ImageUpload {
 
 			map.put("imageName", fileName);
 			map.put("imagePath", filePath.toString());// storing relative path
+			log.info("Image '{}' saved successfully at '{}'.", fileName, filePath);
 		} catch (IOException e) {
 			log.error("Error saving image", e);
 			map.put("serverError", "yes");
+			log.error("Failed to save image due to an IOException.", e);
+		} catch (CustomException e) {
+			log.error("Error saving image: {}", e.getMessage());
+			map.put("imageSizeError", e.getMessage());
 		}
 
 		return map;
@@ -78,9 +83,10 @@ public class ImageUpload {
 			// Check if the file exists before attempting to delete
 			if (Files.exists(imagePath)) {
 				Files.delete(imagePath);
+				log.info("Image '{}' deleted successfully.", imageName);
 				return true; // Image deleted successfully
 			} else {
-				log.warn("Image not found for deletion: " + imageName);
+				log.warn("Image not found for deletion: {}", imageName);
 				return false; // Image not found
 			}
 		} catch (IOException e) {
@@ -88,5 +94,4 @@ public class ImageUpload {
 			return false; // Error occurred while deleting image
 		}
 	}
-
 }

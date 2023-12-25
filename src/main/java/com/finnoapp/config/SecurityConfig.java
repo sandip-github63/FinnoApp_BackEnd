@@ -37,17 +37,13 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable().cors().and()
-				.authorizeRequests(authorizeRequests -> authorizeRequests
-						.antMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
-								"/user/register/**", "/swagger-ui/index.html")
-						.permitAll().antMatchers("/user/**", "/api/article/**").authenticated())
-				.sessionManagement(
-						sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+		return http.csrf().disable().cors().and().authorizeHttpRequests()
+				.antMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
+						"/user/register/**", "/swagger-ui/index.html")
+				.permitAll().and().authorizeHttpRequests().antMatchers("/user/**", "/api/article/**").authenticated()
+				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider())
-				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
-
-		return http.build();
+				.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
 	}
 
 	@Bean
