@@ -10,6 +10,10 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.finnoapp.config.SecurityConfig;
@@ -224,6 +229,41 @@ public class ArticleController {
 			throw ce;
 		} catch (Exception e) {
 			logger.error("An unexpected error occurred while updating the article with ID {}", articleId, e);
+			throw e;
+		}
+	}
+
+	@GetMapping("get/latest-articles")
+	public ResponseEntity<?> getLatestArticles(@RequestParam(defaultValue = "10") int count, Pageable pageable) {
+		try {
+			logger.info("Inside the GetLatestArticles Method ");
+
+			// Update the page size in the Pageable object based on the count parameter
+			pageable = PageRequest.of(0, count, Sort.by(Sort.Direction.DESC, "publicationDate"));
+
+			Page<Article> latestArticlesPage = articleService.getLatestArticles(pageable);
+
+			List<ArticleResponse> list = latestArticlesPage.getContent().stream().map(article -> {
+				String publicationDateFormatted = this.formatLocalDateTime(article.getPublicationDate());
+				String updateDateFormatted = this.formatLocalDateTime(article.getUpdatedDate());
+
+				return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
+						article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
+						extractImageNames(article.getImages()));
+			}).collect(Collectors.toList());
+
+			if (!list.isEmpty()) {
+				logger.info("List of latest articles fetched successfully. Count: {}", list.size());
+				return ResponseEntity.ok(new GenericMessage<>("Latest articles fetched successfully.", list, true));
+			} else {
+				logger.warn("No latest articles found");
+				throw new CustomException("Latest articles not found");
+			}
+		} catch (CustomException ce) {
+			logger.error("CustomException occurred: {}", ce.getMessage());
+			throw ce;
+		} catch (Exception e) {
+			logger.error("An unexpected error occurred while fetching the latest articles", e);
 			throw e;
 		}
 	}

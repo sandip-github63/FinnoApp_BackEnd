@@ -5,6 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.finnoapp.exception.CustomException;
@@ -48,6 +50,12 @@ public class ArticleServiceImpl implements ArticleService {
 	public Article updateArticle(Article article) {
 
 		return this.articleRepository.save(article);
+	}
+
+	@Override
+	public Page<Article> getLatestArticles(Pageable pageable) {
+		return articleRepository.getLatestArticles(pageable);
+		// Adjust the repository method based on your data access logic
 	}
 
 }

@@ -2,6 +2,9 @@ package com.finnoapp.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.finnoapp.model.Article;
 
 public interface ArticleService {
@@ -15,5 +18,7 @@ public interface ArticleService {
 	public void deleteArticle(Long articleId);
 
 	public Article updateArticle(Article article);
+
+	public Page<Article> getLatestArticles(Pageable pageable);
 
 }
