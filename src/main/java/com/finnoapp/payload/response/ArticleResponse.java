@@ -16,7 +16,7 @@ public class ArticleResponse {
 
 	private String updatedDate;
 
-	private List<String> imagePaths;
+	private List<String> imageNames;
 
 	public String getPublicationDate() {
 		return publicationDate;
@@ -90,16 +90,8 @@ public class ArticleResponse {
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<String> getImagePaths() {
-		return imagePaths;
-	}
-
-	public void setImagePaths(List<String> imagePaths) {
-		this.imagePaths = imagePaths;
-	}
-
 	public ArticleResponse(Long articleId, String title, String content, Long userId, String publicationDate,
-			String updatedDate, List<String> imagePaths) {
+			String updatedDate, List<String> imageNames) {
 		super();
 		this.articleId = articleId;
 		this.title = title;
@@ -107,7 +99,15 @@ public class ArticleResponse {
 		this.userId = userId;
 		this.publicationDate = publicationDate;
 		this.updatedDate = updatedDate;
-		this.imagePaths = imagePaths;
+		this.imageNames = imageNames;
+	}
+
+	public List<String> getImageNames() {
+		return imageNames;
+	}
+
+	public void setImageNames(List<String> imageNames) {
+		this.imageNames = imageNames;
 	}
 
 }

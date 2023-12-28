@@ -39,7 +39,7 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf().disable().cors().and().authorizeHttpRequests()
 				.antMatchers("/user/authenticate", "/user/", "/user/test", "/api/reset-password/**",
-						"/user/register/**", "/swagger-ui/index.html")
+						"/user/register/**", "/swagger-ui/index.html", "/api/serve/images/**")
 				.permitAll().and().authorizeHttpRequests().antMatchers("/user/**", "/api/article/**").authenticated()
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authenticationProvider(authenticationProvider())

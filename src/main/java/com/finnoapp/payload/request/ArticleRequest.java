@@ -10,11 +10,11 @@ public class ArticleRequest {
 
 	private String content;
 
-	private Long userId;
+	private String userId;
 
 	private MultipartFile image;
 
-	public ArticleRequest(String title, String content, Long userId, MultipartFile image) {
+	public ArticleRequest(String title, String content, String userId, MultipartFile image) {
 		super();
 		this.title = title;
 		this.content = content;
@@ -30,11 +30,11 @@ public class ArticleRequest {
 		this.image = image;
 	}
 
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -54,7 +54,7 @@ public class ArticleRequest {
 		this.content = content;
 	}
 
-	public ArticleRequest(String title, String content, Long userId) {
+	public ArticleRequest(String title, String content, String userId) {
 		super();
 		this.title = title;
 		this.content = content;

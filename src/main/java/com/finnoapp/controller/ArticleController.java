@@ -57,7 +57,9 @@ public class ArticleController {
 				return ResponseEntity.badRequest().body(new GenericMessage<>("success", "Invalid request", false));
 			}
 
-			User user = userService.getUserById(request.getUserId());
+			Long userId = Long.parseLong(request.getUserId());
+
+			User user = userService.getUserById(userId);
 			if (user == null) {
 				logger.error("User with ID {} does not exist in our database", request.getUserId());
 				throw new CustomException("User Id does not exist in our database");
@@ -95,8 +97,8 @@ public class ArticleController {
 				List<Image> images = article.getImages();
 
 				// Convert images to a format suitable for response (e.g., extract image paths)
-				List<String> imagePaths = this.extractImagePaths(images);
-				ArticleResponse articleResponse = this.convertArticleToArticleImage(article, imagePaths);
+				List<String> imageNames = this.extractImageNames(images);
+				ArticleResponse articleResponse = this.convertArticleToArticleImage(article, imageNames);
 
 				logger.info("Article with ID {} fetched successfully", articleId);
 
@@ -130,7 +132,7 @@ public class ArticleController {
 
 					return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
 							article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-							extractImagePaths(article.getImages()));
+							extractImageNames(article.getImages()));
 				}).collect(Collectors.toList());
 
 				logger.info("List of articles fetched successfully. Count: {}", list.size());
@@ -256,6 +258,23 @@ public class ArticleController {
 
 			return imagePaths;
 		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("Error occurred while extracting image paths", e);
+			throw e;
+		}
+	}
+
+	private List<String> extractImageNames(List<Image> images) {
+		try {
+			logger.debug("Extracting image Name from {} images", images.size());
+
+			List<String> imageNames = images.stream().map(Image::getImageName).collect(Collectors.toList());
+
+			logger.debug("Image paths extracted successfully: {}", imageNames);
+
+			return imageNames;
+		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("Error occurred while extracting image paths", e);
 			throw e;
 		}
@@ -289,6 +308,7 @@ public class ArticleController {
 			logger.error("CustomException occurred: {}", ce.getMessage());
 			throw ce;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("Error processing the image. Request: {}", request, e);
 			throw new CustomException("Error processing the image.", e);
 		}
@@ -346,6 +366,7 @@ public class ArticleController {
 
 			return article;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("Error occurred while creating the article from request", e);
 			throw e;
 		}
@@ -363,6 +384,7 @@ public class ArticleController {
 			}
 		} catch (Exception e) {
 			logger.error("Error occurred during article request validation", e);
+			e.printStackTrace();
 			throw e;
 		}
 	}
@@ -443,7 +465,7 @@ public class ArticleController {
 		try {
 			logger.debug("Formatting LocalDateTime: {}", dateTime);
 
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 			String formattedDateTime = dateTime != null ? dateTime.format(formatter) : "";
 
 			logger.debug("Formatted DateTime: {}", formattedDateTime);

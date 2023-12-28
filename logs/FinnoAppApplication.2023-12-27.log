@@ -1,0 +1,736 @@
+01:00:20.173 [main] INFO  com.finnoapp.FinnoAppApplication - Starting FinnoAppApplication using Java 17.0.3 on sandip-Lenovo-V330-14IKB with PID 21364 (/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/target/classes started by sandip in /home/sandip/Desktop/FINNOAPP/Backend/FinnoApp)
+01:00:20.178 [main] DEBUG com.finnoapp.FinnoAppApplication - Running with Spring Boot v2.7.2, Spring v5.3.22
+01:00:20.178 [main] INFO  com.finnoapp.FinnoAppApplication - No active profile set, falling back to 1 default profile: "default"
+01:00:21.151 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:00:21.224 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 64 ms. Found 5 JPA repository interfaces.
+01:00:21.942 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8085 (http)
+01:00:21.953 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"]
+01:00:21.954 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:00:21.955 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+01:00:22.049 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:00:22.049 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1811 ms
+01:00:22.264 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:00:22.312 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+01:00:22.469 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:00:22.560 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:00:22.929 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:00:22.946 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:00:23.830 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01:00:23.839 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:00:24.212 [main] DEBUG com.finnoapp.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+01:00:24.984 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:00:25.307 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4578d654, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25865fca, org.springframework.security.web.context.SecurityContextPersistenceFilter@24489d12, org.springframework.security.web.header.HeaderWriterFilter@324ee3ca, org.springframework.web.filter.CorsFilter@4c32aa7e, org.springframework.security.web.authentication.logout.LogoutFilter@13157620, com.finnoapp.filter.JwtAuthFilter@36a25457, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30b5f974, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57e2d15c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@c11ec9b, org.springframework.security.web.session.SessionManagementFilter@12e3cf1c, org.springframework.security.web.access.ExceptionTranslationFilter@5ca896af, org.springframework.security.web.access.intercept.AuthorizationFilter@5f67ff3e]
+01:00:25.699 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"]
+01:00:25.715 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8085 (http) with context path ''
+01:00:26.061 [main] INFO  com.finnoapp.FinnoAppApplication - Started FinnoAppApplication in 6.35 seconds (JVM running for 7.27)
+01:00:49.557 [http-nio-8085-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:00:49.557 [http-nio-8085-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:00:49.559 [http-nio-8085-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+01:00:49.718 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@3933129b
+01:00:49.744 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:00:49.744 [http-nio-8085-exec-1] WARN  com.finnoapp.pojos.ImageUpload - No image provided for saving.
+01:00:49.744 [http-nio-8085-exec-1] WARN  com.finnoapp.config.SecurityConfig - Image not found in the request. Request: com.finnoapp.payload.request.ArticleRequest@3933129b
+01:00:49.813 [http-nio-8085-exec-1] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@1c86c9dc
+01:06:16.700 [http-nio-8085-exec-5] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@74fe87b1
+01:06:16.710 [http-nio-8085-exec-5] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:06:16.710 [http-nio-8085-exec-5] WARN  com.finnoapp.pojos.ImageUpload - No image provided for saving.
+01:06:16.710 [http-nio-8085-exec-5] WARN  com.finnoapp.config.SecurityConfig - Image not found in the request. Request: com.finnoapp.payload.request.ArticleRequest@74fe87b1
+01:06:16.739 [http-nio-8085-exec-5] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@3c16fdc0
+01:07:59.228 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+01:07:59.250 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+01:07:59.252 [RMI TCP Connection(11)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+01:07:59.262 [RMI TCP Connection(11)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+01:19:11.428 [main] INFO  com.finnoapp.FinnoAppApplication - Starting FinnoAppApplication using Java 17.0.3 on sandip-Lenovo-V330-14IKB with PID 22053 (/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/target/classes started by sandip in /home/sandip/Desktop/FINNOAPP/Backend/FinnoApp)
+01:19:11.431 [main] DEBUG com.finnoapp.FinnoAppApplication - Running with Spring Boot v2.7.2, Spring v5.3.22
+01:19:11.432 [main] INFO  com.finnoapp.FinnoAppApplication - No active profile set, falling back to 1 default profile: "default"
+01:19:12.469 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+01:19:12.556 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76 ms. Found 5 JPA repository interfaces.
+01:19:13.295 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8085 (http)
+01:19:13.305 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"]
+01:19:13.306 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+01:19:13.306 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+01:19:13.417 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+01:19:13.417 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1928 ms
+01:19:13.615 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+01:19:13.658 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+01:19:13.803 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+01:19:13.918 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+01:19:14.268 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+01:19:14.284 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+01:19:15.165 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+01:19:15.173 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+01:19:15.584 [main] DEBUG com.finnoapp.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+01:19:16.313 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+01:19:16.591 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3db48e6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38f2342b, org.springframework.security.web.context.SecurityContextPersistenceFilter@39bd07fe, org.springframework.security.web.header.HeaderWriterFilter@175c4ae5, org.springframework.web.filter.CorsFilter@68312b85, org.springframework.security.web.authentication.logout.LogoutFilter@40b7e68c, com.finnoapp.filter.JwtAuthFilter@34766f4b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e474bd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@639d808a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ab0168, org.springframework.security.web.session.SessionManagementFilter@46c47690, org.springframework.security.web.access.ExceptionTranslationFilter@693c7741, org.springframework.security.web.access.intercept.AuthorizationFilter@3e60be48]
+01:19:16.956 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"]
+01:19:16.973 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8085 (http) with context path ''
+01:19:17.317 [main] INFO  com.finnoapp.FinnoAppApplication - Started FinnoAppApplication in 6.406 seconds (JVM running for 7.229)
+01:19:32.905 [http-nio-8085-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:19:32.905 [http-nio-8085-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+01:19:32.909 [http-nio-8085-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+01:19:33.074 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@5b869310
+01:19:33.103 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:19:33.103 [http-nio-8085-exec-1] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:19:33.104 [http-nio-8085-exec-1] INFO  com.finnoapp.pojos.ImageUpload - Image '146637cc-9497-4bab-a899-168a274cc714_c.webp' saved successfully at './src/main/resources/Article/Image/146637cc-9497-4bab-a899-168a274cc714_c.webp'.
+01:19:33.104 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@4ebf44d0
+01:19:33.105 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:19:33.109 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@4ebf44d0
+01:19:33.110 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@3606d286
+01:19:33.195 [http-nio-8085-exec-1] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@3606d286
+01:27:31.557 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@4cc747ab
+01:27:31.573 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:27:31.574 [http-nio-8085-exec-4] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:27:31.574 [http-nio-8085-exec-4] INFO  com.finnoapp.pojos.ImageUpload - Image '51614eae-6adc-443f-9b1b-7f722656965e_c.webp' saved successfully at './src/main/resources/Article/Image/51614eae-6adc-443f-9b1b-7f722656965e_c.webp'.
+01:27:31.574 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@191412d5
+01:27:31.575 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:27:31.575 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@191412d5
+01:27:31.575 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@63b7a014
+01:27:31.645 [http-nio-8085-exec-4] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@63b7a014
+01:28:24.686 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@450916f9
+01:28:24.704 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:28:24.704 [http-nio-8085-exec-3] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:28:24.706 [http-nio-8085-exec-3] INFO  com.finnoapp.pojos.ImageUpload - Image 'b591041c-e819-42c5-b69d-bb3a1529d99d_c.webp' saved successfully at './src/main/resources/Article/Image/b591041c-e819-42c5-b69d-bb3a1529d99d_c.webp'.
+01:28:24.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@2c5e024b
+01:28:24.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:28:24.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@2c5e024b
+01:28:24.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@7e86607f
+01:28:24.755 [http-nio-8085-exec-3] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@7e86607f
+01:35:54.362 [http-nio-8085-exec-6] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@3988daf3
+01:35:54.374 [http-nio-8085-exec-6] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:35:54.375 [http-nio-8085-exec-6] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:35:54.377 [http-nio-8085-exec-6] INFO  com.finnoapp.pojos.ImageUpload - Image 'da8b74a8-a372-42d5-810b-dfc2e0087b4f_c.webp' saved successfully at './src/main/resources/Article/Image/da8b74a8-a372-42d5-810b-dfc2e0087b4f_c.webp'.
+01:35:54.378 [http-nio-8085-exec-6] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@7ae26931
+01:35:54.378 [http-nio-8085-exec-6] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:35:54.378 [http-nio-8085-exec-6] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@7ae26931
+01:35:54.378 [http-nio-8085-exec-6] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@123db8a0
+01:35:54.422 [http-nio-8085-exec-6] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@123db8a0
+01:36:47.445 [http-nio-8085-exec-8] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@e56440f
+01:36:47.457 [http-nio-8085-exec-8] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:36:47.458 [http-nio-8085-exec-8] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:36:47.458 [http-nio-8085-exec-8] INFO  com.finnoapp.pojos.ImageUpload - Image '906807aa-563e-48be-abd1-dd207a3b8861_c.webp' saved successfully at './src/main/resources/Article/Image/906807aa-563e-48be-abd1-dd207a3b8861_c.webp'.
+01:36:47.458 [http-nio-8085-exec-8] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@7c524800
+01:36:47.459 [http-nio-8085-exec-8] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:36:47.459 [http-nio-8085-exec-8] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@7c524800
+01:36:47.459 [http-nio-8085-exec-8] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@2e002814
+01:36:47.523 [http-nio-8085-exec-8] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@2e002814
+01:39:27.252 [http-nio-8085-exec-10] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@7b23b4a8
+01:39:27.263 [http-nio-8085-exec-10] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:39:27.263 [http-nio-8085-exec-10] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:39:27.264 [http-nio-8085-exec-10] INFO  com.finnoapp.pojos.ImageUpload - Image 'd51a3863-a453-4c3f-8dba-5f3d7b7f4c5a_c.webp' saved successfully at './src/main/resources/Article/Image/d51a3863-a453-4c3f-8dba-5f3d7b7f4c5a_c.webp'.
+01:39:27.264 [http-nio-8085-exec-10] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@81d88ae
+01:39:27.264 [http-nio-8085-exec-10] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:39:27.264 [http-nio-8085-exec-10] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@81d88ae
+01:39:27.264 [http-nio-8085-exec-10] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@4eff53ce
+01:39:27.311 [http-nio-8085-exec-10] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@4eff53ce
+01:40:51.110 [http-nio-8085-exec-2] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@1eb58c21
+01:40:51.133 [http-nio-8085-exec-2] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:40:51.133 [http-nio-8085-exec-2] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:40:51.134 [http-nio-8085-exec-2] INFO  com.finnoapp.pojos.ImageUpload - Image '0566bd20-f61c-4f71-92c2-cd9cc25561e5_c.webp' saved successfully at './src/main/resources/Article/Image/0566bd20-f61c-4f71-92c2-cd9cc25561e5_c.webp'.
+01:40:51.134 [http-nio-8085-exec-2] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@3ac21ba2
+01:40:51.134 [http-nio-8085-exec-2] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:40:51.134 [http-nio-8085-exec-2] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@3ac21ba2
+01:40:51.134 [http-nio-8085-exec-2] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@636c4744
+01:40:51.189 [http-nio-8085-exec-2] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@636c4744
+01:41:09.847 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@537c9c6f
+01:41:09.870 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:41:09.871 [http-nio-8085-exec-4] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+01:41:09.873 [http-nio-8085-exec-4] INFO  com.finnoapp.pojos.ImageUpload - Image '1df49f02-1033-4374-b97c-d28a8d7c1e0d_c.webp' saved successfully at './src/main/resources/Article/Image/1df49f02-1033-4374-b97c-d28a8d7c1e0d_c.webp'.
+01:41:09.874 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@27e6d38a
+01:41:09.875 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+01:41:09.875 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@27e6d38a
+01:41:09.876 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@79973708
+01:41:09.949 [http-nio-8085-exec-4] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@79973708
+01:41:24.679 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@1859cf38
+01:41:24.694 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+01:41:24.695 [http-nio-8085-exec-3] WARN  com.finnoapp.pojos.ImageUpload - No image provided for saving.
+01:41:24.695 [http-nio-8085-exec-3] WARN  com.finnoapp.config.SecurityConfig - Image not found in the request. Request: com.finnoapp.payload.request.ArticleRequest@1859cf38
+01:41:24.724 [http-nio-8085-exec-3] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@405ab54b
+02:02:35.553 [http-nio-8085-exec-1] INFO  com.finnoapp.config.SecurityConfig - Inside the GetListArticle Method 
+02:02:35.584 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-25T07:17:39.514097
+02:02:35.587 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-25 07:17:39
+02:02:35.588 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.588 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.591 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.592 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.593 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T10:02:18.603140
+02:02:35.593 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 10:02:18
+02:02:35.593 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T18:32:01.297351
+02:02:35.593 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 18:32:01
+02:02:35.594 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.594 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.595 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-25T07:23:45.080300
+02:02:35.595 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-25 07:23:45
+02:02:35.595 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.595 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.597 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.597 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/5e840a1d-4661-4bef-bd55-a1b21c168978_buttler.webp]
+02:02:35.597 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T22:45:39.240597
+02:02:35.597 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 22:45:39
+02:02:35.597 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.598 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.600 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.600 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.600 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T22:49:09.572004
+02:02:35.600 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 22:49:09
+02:02:35.600 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.600 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.602 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.602 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.602 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T23:07:41.040866
+02:02:35.603 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 23:07:41
+02:02:35.603 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.603 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.605 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.605 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.605 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T23:07:45.767479
+02:02:35.605 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 23:07:45
+02:02:35.605 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.605 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.608 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.608 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/642d712d-afc5-4b00-959c-c750b20bd4f6_java.webp]
+02:02:35.608 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T23:17:55.217048
+02:02:35.608 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 23:17:55
+02:02:35.609 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.609 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.611 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.612 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/0af75bdf-2356-466e-8afb-f2436367dddb_java.webp]
+02:02:35.612 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:00:49.748868
+02:02:35.612 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:00:49
+02:02:35.612 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.612 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.614 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.614 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.614 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:06:16.710866
+02:02:35.614 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:06:16
+02:02:35.615 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.615 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.616 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.617 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.617 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:19:33.109798
+02:02:35.617 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:19:33
+02:02:35.617 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.617 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.620 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.620 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/146637cc-9497-4bab-a899-168a274cc714_c.webp]
+02:02:35.620 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:27:31.575535
+02:02:35.620 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:27:31
+02:02:35.620 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.620 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.623 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.623 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/51614eae-6adc-443f-9b1b-7f722656965e_c.webp]
+02:02:35.623 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:28:24.706791
+02:02:35.624 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:28:24
+02:02:35.624 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.624 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.628 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.628 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/b591041c-e819-42c5-b69d-bb3a1529d99d_c.webp]
+02:02:35.628 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:35:54.378275
+02:02:35.629 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:35:54
+02:02:35.629 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.629 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.631 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.631 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/da8b74a8-a372-42d5-810b-dfc2e0087b4f_c.webp]
+02:02:35.631 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:36:47.459302
+02:02:35.632 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:36:47
+02:02:35.632 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.632 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.635 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.636 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/906807aa-563e-48be-abd1-dd207a3b8861_c.webp]
+02:02:35.637 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:39:27.264759
+02:02:35.637 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:39:27
+02:02:35.637 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.637 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.640 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.640 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/d51a3863-a453-4c3f-8dba-5f3d7b7f4c5a_c.webp]
+02:02:35.640 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:40:51.134766
+02:02:35.640 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:40:51
+02:02:35.640 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.640 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.643 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.643 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/0566bd20-f61c-4f71-92c2-cd9cc25561e5_c.webp]
+02:02:35.643 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:41:09.875628
+02:02:35.643 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:41:09
+02:02:35.643 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.643 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.645 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.645 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/1df49f02-1033-4374-b97c-d28a8d7c1e0d_c.webp]
+02:02:35.645 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:41:24.695692
+02:02:35.645 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:41:24
+02:02:35.645 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.645 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.647 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.647 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.647 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T10:05:46.435351
+02:02:35.647 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 10:05:46
+02:02:35.647 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.647 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.649 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.649 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.649 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T10:09:17.006703
+02:02:35.649 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 10:09:17
+02:02:35.649 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.649 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.651 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.652 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.652 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T13:28:50.420642
+02:02:35.652 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 13:28:50
+02:02:35.652 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.652 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.655 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.655 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+02:02:35.655 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T13:43:45.088135
+02:02:35.655 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 13:43:45
+02:02:35.655 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.655 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.659 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.660 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/customer2.jpg]
+02:02:35.660 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T14:11:48.589065
+02:02:35.660 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 14:11:48
+02:02:35.660 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.660 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.662 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.662 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+02:02:35.662 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T14:11:52.954866
+02:02:35.662 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 14:11:52
+02:02:35.662 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.662 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.664 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.664 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+02:02:35.664 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T15:02:54.475064
+02:02:35.664 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 15:02:54
+02:02:35.665 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.665 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.667 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.667 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/168d1236-9800-4a1b-a290-dc9706bc7c67_customer2.jpg]
+02:02:35.667 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T15:05:22.291064
+02:02:35.667 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 15:05:22
+02:02:35.667 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.667 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.670 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.670 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/ec61a192-3609-459a-9cf5-d1458fc5f51a_customer2.jpg]
+02:02:35.670 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T01:58:37.306252
+02:02:35.670 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 01:58:37
+02:02:35.670 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.671 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.674 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.674 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/787180d4-1226-44f7-94c7-6d097413454b_video.mp4]
+02:02:35.674 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T02:05:35.651258
+02:02:35.674 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 02:05:35
+02:02:35.674 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.674 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.676 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.677 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Article/Image/3f4b4a42-22f5-420b-9dd5-9915f590bcdd_video.mp4]
+02:02:35.677 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:09:08.435306
+02:02:35.677 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:09:08
+02:02:35.677 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.677 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.678 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.678 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/7863072d-5f8d-425a-b6fd-01c08c934e32_video.mp4]
+02:02:35.679 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:15:00.443054
+02:02:35.679 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:15:00
+02:02:35.679 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.679 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.680 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.680 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+02:02:35.680 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:15:29.668495
+02:02:35.680 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:15:29
+02:02:35.680 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.680 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.682 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.682 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+02:02:35.683 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:15:50.588156
+02:02:35.683 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:15:50
+02:02:35.683 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.683 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.684 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.685 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+02:02:35.685 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:16:32.365980
+02:02:35.685 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:16:32
+02:02:35.685 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.685 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.687 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.687 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/2d61c600-6935-4c03-b252-4dd109cfbc01_virat.jpg]
+02:02:35.687 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:36:55.195725
+02:02:35.688 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:36:55
+02:02:35.688 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.688 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.690 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.690 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/2f5e5e14-24da-48c1-827c-d0b00b644254_virat.jpg]
+02:02:35.690 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.690 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.690 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.690 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.693 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.693 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.693 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.693 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.693 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.693 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.694 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.694 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.694 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.694 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.694 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.694 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.696 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.696 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.696 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.696 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.696 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.696 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.698 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.698 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.698 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:41:37.041779
+02:02:35.698 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:41:37
+02:02:35.698 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.698 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.700 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.701 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.701 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:42:55.462557
+02:02:35.701 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:42:55
+02:02:35.701 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.701 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.704 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.704 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/a59542dc-fc33-4892-944e-1f62f25c7dc9_pom.xml]
+02:02:35.704 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:52:26.188086
+02:02:35.704 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:52:26
+02:02:35.704 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.705 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.709 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.710 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [false]
+02:02:35.710 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:54:35.508782
+02:02:35.710 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:54:35
+02:02:35.710 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.710 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.712 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.714 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Article/Image/616b5125-f032-459e-b346-f566485127dd_pom.xml]
+02:02:35.714 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:58:50.126762
+02:02:35.714 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:58:50
+02:02:35.714 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.714 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.716 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+02:02:35.717 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/7c5bf954-8258-4ed8-97ef-c0599da22350_pom.xml]
+02:02:35.717 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:59:13.325191
+02:02:35.717 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:59:13
+02:02:35.717 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+02:02:35.717 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+02:02:35.720 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+02:02:35.720 [http-nio-8085-exec-1] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+02:02:35.720 [http-nio-8085-exec-1] INFO  com.finnoapp.config.SecurityConfig - List of articles fetched successfully. Count: 45
+09:25:49.559 [RMI TCP Connection(491)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+09:25:49.581 [RMI TCP Connection(491)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:25:49.582 [RMI TCP Connection(491)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+09:25:49.586 [RMI TCP Connection(491)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+20:54:28.348 [main] INFO  com.finnoapp.FinnoAppApplication - Starting FinnoAppApplication using Java 17.0.3 on sandip-Lenovo-V330-14IKB with PID 8714 (/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/target/classes started by sandip in /home/sandip/Desktop/FINNOAPP/Backend/FinnoApp)
+20:54:28.351 [main] DEBUG com.finnoapp.FinnoAppApplication - Running with Spring Boot v2.7.2, Spring v5.3.22
+20:54:28.352 [main] INFO  com.finnoapp.FinnoAppApplication - No active profile set, falling back to 1 default profile: "default"
+20:54:29.680 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+20:54:29.753 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 5 JPA repository interfaces.
+20:54:30.498 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8085 (http)
+20:54:30.509 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"]
+20:54:30.510 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+20:54:30.511 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+20:54:30.609 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+20:54:30.609 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2181 ms
+20:54:30.833 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+20:54:30.890 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+20:54:31.087 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+20:54:31.183 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+20:54:31.525 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+20:54:31.543 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+20:54:32.528 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+20:54:32.539 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+20:54:32.952 [main] DEBUG com.finnoapp.filter.JwtAuthFilter - Filter 'jwtAuthFilter' configured for use
+20:54:33.660 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+20:54:33.953 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25865fca, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c32aa7e, org.springframework.security.web.context.SecurityContextPersistenceFilter@28df2da8, org.springframework.security.web.header.HeaderWriterFilter@639d808a, org.springframework.web.filter.CorsFilter@c11ec9b, org.springframework.security.web.authentication.logout.LogoutFilter@62a78446, com.finnoapp.filter.JwtAuthFilter@22c0c0bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37227aa7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6810465, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@fd8513b, org.springframework.security.web.session.SessionManagementFilter@70ed03e4, org.springframework.security.web.access.ExceptionTranslationFilter@7e474bd, org.springframework.security.web.access.intercept.AuthorizationFilter@2ab87cb8]
+20:54:34.302 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"]
+20:54:34.318 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8085 (http) with context path ''
+20:54:34.665 [main] INFO  com.finnoapp.FinnoAppApplication - Started FinnoAppApplication in 6.839 seconds (JVM running for 7.744)
+20:54:53.590 [http-nio-8085-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:54:53.590 [http-nio-8085-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+20:54:53.592 [http-nio-8085-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+20:56:33.533 [http-nio-8085-exec-3] INFO  com.finnoapp.config.SecurityConfig - Inside the GetListArticle Method 
+20:56:33.588 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-25T07:17:39.514097
+20:56:33.589 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-25 07:17:39
+20:56:33.590 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.590 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.594 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.594 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.594 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T10:02:18.603140
+20:56:33.595 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 10:02:18
+20:56:33.595 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T18:32:01.297351
+20:56:33.595 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 18:32:01
+20:56:33.600 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.600 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.600 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-25T07:23:45.080300
+20:56:33.600 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-25 07:23:45
+20:56:33.600 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.600 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.604 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.604 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/5e840a1d-4661-4bef-bd55-a1b21c168978_buttler.webp]
+20:56:33.604 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T22:45:39.240597
+20:56:33.605 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 22:45:39
+20:56:33.605 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.605 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.607 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.607 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.607 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T22:49:09.572004
+20:56:33.607 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 22:49:09
+20:56:33.607 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.607 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.609 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.609 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.610 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T23:07:41.040866
+20:56:33.610 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 23:07:41
+20:56:33.610 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.610 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.613 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.614 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.614 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T23:07:45.767479
+20:56:33.616 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 23:07:45
+20:56:33.618 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.618 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.620 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.620 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/642d712d-afc5-4b00-959c-c750b20bd4f6_java.webp]
+20:56:33.621 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-26T23:17:55.217048
+20:56:33.621 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-26 23:17:55
+20:56:33.621 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.621 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.624 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.625 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/0af75bdf-2356-466e-8afb-f2436367dddb_java.webp]
+20:56:33.625 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:00:49.748868
+20:56:33.625 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:00:49
+20:56:33.625 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.625 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.627 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.627 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.627 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:06:16.710866
+20:56:33.627 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:06:16
+20:56:33.627 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.629 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.634 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.634 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.634 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:19:33.109798
+20:56:33.634 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:19:33
+20:56:33.634 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.635 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.638 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.639 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/146637cc-9497-4bab-a899-168a274cc714_c.webp]
+20:56:33.639 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:27:31.575535
+20:56:33.639 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:27:31
+20:56:33.639 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.639 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.641 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.642 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/51614eae-6adc-443f-9b1b-7f722656965e_c.webp]
+20:56:33.642 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:28:24.706791
+20:56:33.642 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:28:24
+20:56:33.642 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.642 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.646 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.646 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/b591041c-e819-42c5-b69d-bb3a1529d99d_c.webp]
+20:56:33.646 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:35:54.378275
+20:56:33.646 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:35:54
+20:56:33.646 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.646 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.650 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.650 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/da8b74a8-a372-42d5-810b-dfc2e0087b4f_c.webp]
+20:56:33.650 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:36:47.459302
+20:56:33.650 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:36:47
+20:56:33.651 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.651 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.655 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.655 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/906807aa-563e-48be-abd1-dd207a3b8861_c.webp]
+20:56:33.656 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:39:27.264759
+20:56:33.656 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:39:27
+20:56:33.656 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.656 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.659 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.659 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/d51a3863-a453-4c3f-8dba-5f3d7b7f4c5a_c.webp]
+20:56:33.659 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:40:51.134766
+20:56:33.660 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:40:51
+20:56:33.660 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.660 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.666 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.666 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/0566bd20-f61c-4f71-92c2-cd9cc25561e5_c.webp]
+20:56:33.666 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:41:09.875628
+20:56:33.667 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:41:09
+20:56:33.667 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.667 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.672 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.672 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/1df49f02-1033-4374-b97c-d28a8d7c1e0d_c.webp]
+20:56:33.673 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-27T01:41:24.695692
+20:56:33.673 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-27 01:41:24
+20:56:33.674 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.674 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.676 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.676 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.676 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T10:05:46.435351
+20:56:33.676 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 10:05:46
+20:56:33.676 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.677 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.680 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.680 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.680 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-20T10:09:17.006703
+20:56:33.680 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-20 10:09:17
+20:56:33.680 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.680 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.684 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.684 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.684 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T13:28:50.420642
+20:56:33.684 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 13:28:50
+20:56:33.684 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.684 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.686 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.687 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+20:56:33.687 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T13:43:45.088135
+20:56:33.687 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 13:43:45
+20:56:33.687 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.687 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.689 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.689 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/customer2.jpg]
+20:56:33.689 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T14:11:48.589065
+20:56:33.689 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 14:11:48
+20:56:33.689 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.689 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.693 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.693 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+20:56:33.693 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T14:11:52.954866
+20:56:33.693 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 14:11:52
+20:56:33.693 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.694 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.698 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.698 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+20:56:33.698 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T15:02:54.475064
+20:56:33.698 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 15:02:54
+20:56:33.698 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.698 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.701 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.702 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/168d1236-9800-4a1b-a290-dc9706bc7c67_customer2.jpg]
+20:56:33.702 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-23T15:05:22.291064
+20:56:33.702 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-23 15:05:22
+20:56:33.702 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.702 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.705 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.705 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/ec61a192-3609-459a-9cf5-d1458fc5f51a_customer2.jpg]
+20:56:33.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T01:58:37.306252
+20:56:33.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 01:58:37
+20:56:33.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.706 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.708 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.708 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Image/787180d4-1226-44f7-94c7-6d097413454b_video.mp4]
+20:56:33.709 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T02:05:35.651258
+20:56:33.709 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 02:05:35
+20:56:33.709 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.709 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.711 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.711 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Article/Image/3f4b4a42-22f5-420b-9dd5-9915f590bcdd_video.mp4]
+20:56:33.712 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:09:08.435306
+20:56:33.713 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:09:08
+20:56:33.713 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.713 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.718 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.718 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/7863072d-5f8d-425a-b6fd-01c08c934e32_video.mp4]
+20:56:33.718 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:15:00.443054
+20:56:33.718 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:15:00
+20:56:33.719 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.719 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.722 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.722 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+20:56:33.722 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:15:29.668495
+20:56:33.722 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:15:29
+20:56:33.723 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.723 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.739 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.739 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+20:56:33.739 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:15:50.588156
+20:56:33.739 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:15:50
+20:56:33.739 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.739 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.741 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.741 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [null]
+20:56:33.741 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:16:32.365980
+20:56:33.741 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:16:32
+20:56:33.741 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.741 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.744 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.744 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/2d61c600-6935-4c03-b252-4dd109cfbc01_virat.jpg]
+20:56:33.744 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:36:55.195725
+20:56:33.744 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:36:55
+20:56:33.744 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.744 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.752 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.753 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/2f5e5e14-24da-48c1-827c-d0b00b644254_virat.jpg]
+20:56:33.753 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.753 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.753 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.753 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.755 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.756 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.757 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.757 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.757 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.757 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.759 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.760 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.760 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.760 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.760 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.760 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.763 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.763 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.763 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.763 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.763 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.763 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.766 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.766 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.767 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:41:37.041779
+20:56:33.767 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:41:37
+20:56:33.767 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.767 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.769 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.769 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.769 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:42:55.462557
+20:56:33.770 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:42:55
+20:56:33.770 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.770 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.773 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.773 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/a59542dc-fc33-4892-944e-1f62f25c7dc9_pom.xml]
+20:56:33.773 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:52:26.188086
+20:56:33.773 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:52:26
+20:56:33.773 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.773 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.776 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.776 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [false]
+20:56:33.776 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:54:35.508782
+20:56:33.776 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:54:35
+20:56:33.776 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.776 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.779 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.779 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [/home/sandip/Desktop/FINNOAPP/Backend/FinnoApp/./src/main/resources/Article/Image/616b5125-f032-459e-b346-f566485127dd_pom.xml]
+20:56:33.780 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:58:50.126762
+20:56:33.780 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:58:50
+20:56:33.780 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.780 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.787 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 1 images
+20:56:33.787 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: [./src/main/resources/Article/Image/7c5bf954-8258-4ed8-97ef-c0599da22350_pom.xml]
+20:56:33.787 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: 2023-12-24T03:59:13.325191
+20:56:33.787 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 2023-12-24 03:59:13
+20:56:33.787 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatting LocalDateTime: null
+20:56:33.787 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Formatted DateTime: 
+20:56:33.790 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Extracting image paths from 0 images
+20:56:33.791 [http-nio-8085-exec-3] DEBUG com.finnoapp.config.SecurityConfig - Image paths extracted successfully: []
+20:56:33.791 [http-nio-8085-exec-3] INFO  com.finnoapp.config.SecurityConfig - List of articles fetched successfully. Count: 45
+21:04:26.670 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Article request validation successful: com.finnoapp.payload.request.ArticleRequest@71483dd0
+21:04:26.684 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Creating image from request
+21:04:26.685 [http-nio-8085-exec-4] DEBUG com.finnoapp.pojos.ImageUpload - Max size configured: 5 MB
+21:04:26.686 [http-nio-8085-exec-4] INFO  com.finnoapp.pojos.ImageUpload - Image 'd0ebc15c-95c5-46ed-95dd-b8e80fa42093_javadownload.webp' saved successfully at './src/main/resources/Article/Image/d0ebc15c-95c5-46ed-95dd-b8e80fa42093_javadownload.webp'.
+21:04:26.687 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Image created successfully: com.finnoapp.model.Image@20a2579b
+21:04:26.687 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Creating article from request
+21:04:26.691 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Image associated with the article: com.finnoapp.model.Image@20a2579b
+21:04:26.692 [http-nio-8085-exec-4] DEBUG com.finnoapp.config.SecurityConfig - Article created successfully: com.finnoapp.model.Article@677421c1
+21:04:26.770 [http-nio-8085-exec-4] INFO  com.finnoapp.config.SecurityConfig - Article added successfully: com.finnoapp.model.Article@677421c1
+21:08:12.019 [http-nio-8085-exec-10] INFO  com.finnoapp.config.SecurityConfig - Deleting article with ID: 33
+21:08:12.034 [http-nio-8085-exec-10] INFO  com.finnoapp.pojos.ImageUpload - Image 'd0ebc15c-95c5-46ed-95dd-b8e80fa42093_javadownload.webp' deleted successfully.
+21:08:12.034 [http-nio-8085-exec-10] INFO  com.finnoapp.config.SecurityConfig - Associated image deleted for article with ID: 33
+21:08:12.066 [http-nio-8085-exec-10] INFO  com.finnoapp.config.SecurityConfig - Article with ID 33 deleted successfully
