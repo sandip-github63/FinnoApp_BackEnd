@@ -39,6 +39,17 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
 		System.out.println("header  :" + authHeader);
 
+		System.out.println("HttpServletRequest URI  :" + request.getRequestURI());
+
+		// Bypass the URL
+		if ("/api/article/get/latest-articles".equals(request.getRequestURI())
+				|| "/api/article/get/all-articles".equals(request.getRequestURI())
+				|| request.getRequestURI().matches("/api/article/get/\\d+")) {
+			filterChain.doFilter(request, response);
+			return;
+
+		}
+
 		if (authHeader != null && authHeader.startsWith("Bearer ")) {
 
 			token = authHeader.substring(7);

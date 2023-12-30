@@ -58,4 +58,10 @@ public class ArticleServiceImpl implements ArticleService {
 		// Adjust the repository method based on your data access logic
 	}
 
+	@Override
+	public List<Article> getUserArticles(Long userId) {
+
+		return this.articleRepository.getLatestUserArticles(userId);
+	}
+
 }

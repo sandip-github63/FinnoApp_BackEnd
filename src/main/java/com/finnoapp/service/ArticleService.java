@@ -21,4 +21,6 @@ public interface ArticleService {
 
 	public Page<Article> getLatestArticles(Pageable pageable);
 
+	public List<Article> getUserArticles(Long userId);
+
 }

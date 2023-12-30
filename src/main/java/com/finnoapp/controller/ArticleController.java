@@ -268,6 +268,38 @@ public class ArticleController {
 		}
 	}
 
+	@GetMapping("get/user-articles/{userId}")
+	public ResponseEntity<?> getUserArticles(@PathVariable Long userId) {
+		try {
+			logger.info("Inside the getUserArticles Method for user ID: {}", userId);
+
+			List<Article> articles = articleService.getUserArticles(userId);
+
+			List<ArticleResponse> list = articles.stream().map(article -> {
+				String publicationDateFormatted = this.formatLocalDateTimeAndMinutes(article.getPublicationDate());
+				String updateDateFormatted = this.formatLocalDateTimeAndMinutes(article.getUpdatedDate());
+
+				return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
+						article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
+						extractImageNames(article.getImages()));
+			}).collect(Collectors.toList());
+
+			if (!list.isEmpty()) {
+				logger.info("List of user articles fetched successfully. Count: {}", list.size());
+				return ResponseEntity.ok(new GenericMessage<>("User articles fetched successfully.", list, true));
+			} else {
+				logger.warn("No articles found for user ID: {}", userId);
+				throw new CustomException("Articles not found for the specified user");
+			}
+		} catch (CustomException ce) {
+			logger.error("CustomException occurred: {}", ce.getMessage());
+			throw ce;
+		} catch (Exception e) {
+			logger.error("An unexpected error occurred while fetching user articles", e);
+			throw e;
+		}
+	}
+
 	public ArticleResponse convertArticleToArticleImage(Article article, List<String> imagePaths) {
 		try {
 			logger.debug("Converting Article to ArticleResponse: {}", article);
@@ -506,6 +538,22 @@ public class ArticleController {
 			logger.debug("Formatting LocalDateTime: {}", dateTime);
 
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			String formattedDateTime = dateTime != null ? dateTime.format(formatter) : "";
+
+			logger.debug("Formatted DateTime: {}", formattedDateTime);
+
+			return formattedDateTime;
+		} catch (Exception e) {
+			logger.error("Error occurred while formatting LocalDateTime", e);
+			throw e;
+		}
+	}
+
+	private String formatLocalDateTimeAndMinutes(LocalDateTime dateTime) {
+		try {
+			logger.debug("Formatting LocalDateTime: {}", dateTime);
+
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
 			String formattedDateTime = dateTime != null ? dateTime.format(formatter) : "";
 
 			logger.debug("Formatted DateTime: {}", formattedDateTime);
