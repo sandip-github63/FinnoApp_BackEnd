@@ -20,4 +20,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	@Query("SELECT a FROM Article a WHERE a.user.userId = :userId ORDER BY a.publicationDate DESC")
 	List<Article> getLatestUserArticles(@Param("userId") Long userId);
 
+	@Query("SELECT a FROM Article a ORDER BY a.publicationDate DESC")
+	List<Article> getLatestArticles();
+
 }

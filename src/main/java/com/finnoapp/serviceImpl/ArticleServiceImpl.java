@@ -37,7 +37,7 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<Article> getAllArticles() {
 
-		return this.articleRepository.findAll();
+		return this.articleRepository.getLatestArticles();
 	}
 
 	@Override
