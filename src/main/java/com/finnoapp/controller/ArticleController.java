@@ -367,7 +367,7 @@ public class ArticleController {
 
 			if ("true".equalsIgnoreCase(imageInfo.get("imageNotFound"))) {
 				logger.warn("Image not found in the request. Request: {}", request);
-				return null;
+				return image;
 			}
 
 			if (imageInfo.get("imageName") != null && imageInfo.get("imagePath") != null) {

@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -73,7 +75,12 @@ public class ImageUpload {
 	}
 
 	private String generateUniqueFilename(String originalFilename) {
-		return UUID.randomUUID().toString() + "_" + originalFilename;
+		// Generate a timestamp with milliseconds
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
+		String timestamp = dateFormat.format(new Date());
+
+		// Combine timestamp with a UUID for uniqueness
+		return timestamp + "_" + UUID.randomUUID().toString() + "_" + originalFilename;
 	}
 
 	public boolean deleteImageFromServerByImageName(String imageName) {
