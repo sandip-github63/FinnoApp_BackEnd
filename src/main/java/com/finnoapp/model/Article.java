@@ -36,6 +36,12 @@ public class Article {
 	@Column(name = "updated_date")
 	private LocalDateTime updatedDate;
 
+	@Column(name = "url")
+	private String url;
+
+	@Column(name = "url_source")
+	private String urlSource;
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -128,6 +134,22 @@ public class Article {
 		return publicationDate;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getUrlSource() {
+		return urlSource;
+	}
+
+	public void setUrlSource(String urlSource) {
+		this.urlSource = urlSource;
+	}
+
 	public void setPublicationDate(LocalDateTime publicationDate) {
 		this.publicationDate = publicationDate;
 	}
@@ -145,6 +167,17 @@ public class Article {
 		this.content = content;
 		this.publicationDate = publicationDate;
 		this.user = user;
+	}
+
+	public Article(String title, String content, LocalDateTime publicationDate, User user, String url,
+			String urlSource) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.publicationDate = publicationDate;
+		this.user = user;
+		this.url = url;
+		this.urlSource = urlSource;
 	}
 
 	public Article() {

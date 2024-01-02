@@ -12,6 +12,10 @@ public class ArticleRequest {
 
 	private String userId;
 
+	private String url;
+
+	private String urlSource;
+
 	private MultipartFile image;
 
 	public ArticleRequest(String title, String content, String userId, MultipartFile image) {
@@ -20,6 +24,22 @@ public class ArticleRequest {
 		this.content = content;
 		this.userId = userId;
 		this.image = image;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getUrlSource() {
+		return urlSource;
+	}
+
+	public void setUrlSource(String urlSource) {
+		this.urlSource = urlSource;
 	}
 
 	public MultipartFile getImage() {

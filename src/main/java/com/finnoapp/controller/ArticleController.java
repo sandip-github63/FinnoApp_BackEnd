@@ -72,8 +72,8 @@ public class ArticleController {
 
 			Image image = createImageFromRequest(request);
 			Article result = (image != null) ? articleService.addArticle(createArticleFromRequest(request, user, image))
-					: articleService.addArticle(
-							new Article(request.getTitle(), request.getContent(), LocalDateTime.now(), user));
+					: articleService.addArticle(new Article(request.getTitle(), request.getContent(),
+							LocalDateTime.now(), user, request.getUrl(), request.getUrlSource()));
 
 			if (result != null) {
 				logger.info("Article added successfully: {}", result);
@@ -137,7 +137,7 @@ public class ArticleController {
 
 					return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
 							article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-							extractImageNames(article.getImages()));
+							extractImageNames(article.getImages()), article.getUrl(), article.getUrlSource());
 				}).collect(Collectors.toList());
 
 				logger.info("List of articles fetched successfully. Count: {}", list.size());
@@ -249,7 +249,7 @@ public class ArticleController {
 
 				return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
 						article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-						extractImageNames(article.getImages()));
+						extractImageNames(article.getImages()), article.getUrl(), article.getUrlSource());
 			}).collect(Collectors.toList());
 
 			if (!list.isEmpty()) {
@@ -281,7 +281,7 @@ public class ArticleController {
 
 				return new ArticleResponse(article.getArticleId(), article.getTitle(), article.getContent(),
 						article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-						extractImageNames(article.getImages()));
+						extractImageNames(article.getImages()), article.getUrl(), article.getUrlSource());
 			}).collect(Collectors.toList());
 
 			if (!list.isEmpty()) {
@@ -309,7 +309,7 @@ public class ArticleController {
 
 			ArticleResponse articleResponse = new ArticleResponse(article.getArticleId(), article.getTitle(),
 					article.getContent(), article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-					imagePaths);
+					imagePaths, article.getUrl(), article.getUrlSource());
 
 			logger.debug("Conversion successful. ArticleResponse: {}", articleResponse);
 
@@ -423,7 +423,8 @@ public class ArticleController {
 		try {
 			logger.debug("Creating article from request");
 
-			Article article = new Article(request.getTitle(), request.getContent(), LocalDateTime.now(), user);
+			Article article = new Article(request.getTitle(), request.getContent(), LocalDateTime.now(), user,
+					request.getUrl(), request.getUrlSource());
 
 			if (image != null) {
 				image.setArticle(article);
@@ -469,6 +470,8 @@ public class ArticleController {
 			existingArticle.setTitle(updatedArticleRequest.getTitle());
 			existingArticle.setContent(updatedArticleRequest.getContent());
 			existingArticle.setUpdatedDate(LocalDateTime.now());
+			existingArticle.setUrl(updatedArticleRequest.getUrl());
+			existingArticle.setUrlSource(updatedArticleRequest.getUrlSource());
 
 			logger.debug("Article details updated successfully. Updated Article: {}", existingArticle);
 		} catch (Exception e) {
@@ -486,7 +489,7 @@ public class ArticleController {
 
 			ArticleResponse articleResponse = new ArticleResponse(article.getArticleId(), article.getTitle(),
 					article.getContent(), article.getUser().getUserId(), publicationDateFormatted, updateDateFormatted,
-					extractImagePaths(article.getImages()));
+					extractImagePaths(article.getImages()), article.getUrl(), article.getUrlSource());
 
 			logger.debug("Conversion successful. ArticleResponse: {}", articleResponse);
 

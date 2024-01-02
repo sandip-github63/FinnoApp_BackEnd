@@ -16,6 +16,10 @@ public class ArticleResponse {
 
 	private String updatedDate;
 
+	private String url;
+
+	private String urlSource;
+
 	private List<String> imageNames;
 
 	public String getPublicationDate() {
@@ -58,6 +62,22 @@ public class ArticleResponse {
 		this.content = content;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getUrlSource() {
+		return urlSource;
+	}
+
+	public void setUrlSource(String urlSource) {
+		this.urlSource = urlSource;
+	}
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -91,7 +111,7 @@ public class ArticleResponse {
 	}
 
 	public ArticleResponse(Long articleId, String title, String content, Long userId, String publicationDate,
-			String updatedDate, List<String> imageNames) {
+			String updatedDate, List<String> imageNames, String url, String urlSource) {
 		super();
 		this.articleId = articleId;
 		this.title = title;
@@ -99,6 +119,8 @@ public class ArticleResponse {
 		this.userId = userId;
 		this.publicationDate = publicationDate;
 		this.updatedDate = updatedDate;
+		this.url = url;
+		this.urlSource = urlSource;
 		this.imageNames = imageNames;
 	}
 
